@@ -94,13 +94,13 @@ else ifeq ($(platform), qnx)
 	AR = QCC -Vgcc_ntoarmv7le
 	PLATFORM_DEFINES := -D__BLACKBERRY_QNX__ -fexceptions -marm -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 
-else ifeq ($(platform), android)
+else ifeq ($(platform), arm64)
 	TARGET := $(TARGET_NAME)_libretro.so
 	COMMONFLAGS += -fpermissive
 	LDFLAGS += -shared -Wl,--version-script=link.T
 
-	CC = arm-linux-androideabi-gcc
-	CXX = arm-linux-androideabi-g++
+	CC = aarch64-libreelec-linux-gnueabi-gcc
+	CXX = aarch64-libreelec-linux-gnueabi-g++
 
 	fpic = -fPIC
 
